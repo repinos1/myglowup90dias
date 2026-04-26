@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transforma tu vida en 90 días</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box;
+  font-variant-numeric: lining-nums !important;
+  font-feature-settings: "lnum" 1 !important;
+}
+  :root {
+    --bg:       #fdf0f4;
+    --bg2:      #fce8ef;
+    --bg3:      #fff5f8;
+    --pink:     #e8508a;
+    --pink-lt:  #f06faa;
+    --dark:     #1a1a1a;
+    --muted:    #777;
+    --border:   #f0c8d8;
+    --btn-bg:   #e8508a;
+    --btn-text: #fff;
+  }
+
+  body { font-family: 'Georgia', serif; background: var(--bg); color: var(--dark); line-height: 1.7; }
+
+  /* ── HERO ── */
+  .hero { background: var(--bg); text-align: center; padding: 70px 24px 50px; border-bottom: 1px solid var(--border); }
+  .hero h1 { font-size: clamp(1.6rem, 4vw, 2.5rem); font-weight: 900; line-height: 1.25; color: var(--dark); max-width: 780px; margin: 0 auto 28px; }
+  .hero h1 span { color: var(--pink); }
+  .hero p { font-size: 1.1rem; max-width: 680px; margin: 0 auto 14px; color: #333; }
+  .hero p strong, .hero p .pink { color: var(--pink); font-weight: 700; }
+  .hero .product { 
+    max-width: 150px; 
+    width: 100%; 
+    margin: 36px 10px 0; 
+    display: inline-block;
+    vertical-align: -webkit-baseline-middle; 
+  }
+  
+  .hero .product:first-of-type {
+    max-width: 170px;
+  }
+
+  /* ── BUTTON ── */
+  .btn { display: inline-block; background: var(--btn-bg); color: var(--btn-text); font-family: 'Georgia', serif; font-weight: 700; font-size: 1rem; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; padding: 18px 52px; border-radius: 50px; margin: 28px auto 8px; transition: opacity .2s, transform .1s; box-shadow: 0 4px 18px rgba(232,80,138,.35); }
+  .btn:hover { opacity: .88; transform: scale(1.02); }
+
+  /* ── DIVIDER ── */
+  .divider { 
+    max-width: 350px; 
+    width: 100%; 
+    display: block; 
+    margin: 0 auto; 
+  }
+
+  /* ── PROBLEMS ── */
+  .problems { background: var(--bg2); padding: 56px 24px; }
+  .problems-inner { max-width: 800px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
+  .problems-text { flex: 1; min-width: 260px; }
+  .problems-text p { font-size: 1.05rem; margin-bottom: 14px; color: #333; }
+  .problems-text strong { color: var(--dark); }
+  .problems-text ol { padding-left: 22px; color: #333; }
+  .problems-text ol li { margin-bottom: 10px; font-size: 1.05rem; }
+  .problems-img { 
+    flex: 0 0 355px; 
+    text-align: center; 
+  }
+  .problems-img img { 
+    max-width: 355px; 
+    width: 100%; 
+  }
+
+  /* ── SECTION TITLE ── */
+  .section-title { text-align: center; padding: 60px 24px 8px; }
+  .section-title h2 { font-size: clamp(1.1rem, 2.6vw, 1.6rem); letter-spacing: 4px; text-transform: uppercase; color: var(--pink); }
+
+  /* ── MODULE CARDS ── */
+  .modules { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 20px; padding: 32px 24px 56px; max-width: 860px; margin: 0 auto; }
+  .mc { 
+    background: var(--bg3); 
+    border: 1px solid var(--border); 
+    border-radius: 14px; 
+    padding: 15px; 
+    display: flex; 
+    gap: 16px; 
+    overflow: hidden; 
+  }
+  .mc img { 
+    width: 170px;
+    height: 170px; 
+    min-height: 100%;
+    object-fit: cover; 
+    border-radius: 10px; 
+    flex-shrink: 0; 
+  }
+  .mc h3 { font-size: .95rem; color: var(--pink); margin-bottom: 8px; font-weight: 700; }
+  .mc p { font-size: .88rem; color: #555; line-height: 1.6; }
+
+  /* ── BONUSES ── */
+  .bonuses { background: var(--bg2); padding: 60px 24px; text-align: center; border-top: 1px solid var(--border); }
+  .bonuses .kit-img { 
+    width: 420px; 
+    margin: 0 auto 36px; 
+    display: block; 
+  }
+  .bonuses h2 { font-size: clamp(1.1rem, 2.6vw, 1.6rem); color: var(--pink); text-transform: uppercase; letter-spacing: 3px; }
+  .bonuses .sub { font-size: 1.2rem; font-weight: 700; color: var(--dark); margin: 8px 0 14px; }
+  .bonuses .desc { color: #555; font-size: .97rem; max-width: 620px; margin: 0 auto 44px; }
+  .bonus-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 20px; max-width: 860px; margin: 0 auto; text-align: left; }
+  .bc { 
+    background: var(--bg3); 
+    border: 1px solid var(--border); 
+    border-radius: 14px; 
+    padding: 24px; 
+    display: flex; 
+    flex-direction: column;
+    gap: 16px; 
+    align-items: center;
+    text-align: center; 
+  }
+  .bc img { 
+    width: 100%; 
+    height: auto; 
+    object-fit: cover; 
+    border-radius: 10px; 
+    flex-shrink: 0; 
+  }
+  .bc h3 { font-size: .82rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--pink); margin-bottom: 10px; }
+  .bc p { font-size: .88rem; color: #555; line-height: 1.65; }
+  .bc strong { color: var(--dark); }
+
+  /* ── PRICING ── */
+  .pricing { background: var(--bg); text-align: center; padding: 60px 24px; border-top: 1px solid var(--border); }
+  .pricing .urgency { font-size: .95rem; font-weight: 700; color: var(--pink); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 28px; }
+  .pricing .old { font-size: 1.2rem; color: var(--muted); text-decoration: line-through; margin-bottom: 6px; }
+  .pricing .only { font-size: .78rem; letter-spacing: 5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .pricing .price { font-size: 4.5rem; font-weight: 900; color: var(--dark); margin: 4px 0 8px; line-height: 1; }
+  .pricing .price sup { font-size: 1.8rem; vertical-align: super; }
+  .pricing .note { font-size: .76rem; color: var(--muted); letter-spacing: 3px; text-transform: uppercase; margin-top: 12px; }
+
+  /* ── COUNTDOWN ── */
+  .cd-label { color: #555; font-size: .9rem; margin: 40px 0 16px; font-style: italic; }
+  .countdown { display: flex; justify-content: center; gap: 14px; }
+  .cdu { background: var(--bg3); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; min-width: 72px; }
+  .cdu .num { font-size: 2.2rem; font-weight: 800; color: var(--pink); display: block; line-height: 1; }
+  .cdu .lbl { font-size: .62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; display: block; }
+
+  /* ── GUARANTEE ── */
+  .guarantee { background: var(--bg3); border: 1px solid var(--border); border-radius: 16px; padding: 32px; max-width: 700px; margin: 44px auto 0; display: flex; align-items: center; gap: 24px; text-align: left; }
+  .guarantee img { width: 200px; flex-shrink: 0; }
+  .guarantee h3 { font-size: 1rem; color: var(--pink); margin-bottom: 10px; }
+  .guarantee p { font-size: .91rem; color: #555; line-height: 1.7; }
+  .guarantee strong { color: var(--dark); }
+
+  /* ── FAQ ── */
+  .faq { padding: 60px 24px; max-width: 760px; margin: 0 auto; border-top: 1px solid var(--border); }
+  .faq-title { text-align: center; font-size: 1.1rem; letter-spacing: 5px; color: var(--pink); text-transform: uppercase; margin-bottom: 40px; }
+  .fi { border-bottom: 1px solid var(--border); padding: 26px 0; }
+  .fi .n { color: var(--pink); font-weight: 700; font-size: .88rem; margin-bottom: 8px; }
+  .fi .q { font-weight: 700; font-size: .97rem; color: var(--dark); margin-bottom: 10px; }
+  .fi .a { color: #666; font-size: .91rem; line-height: 1.75; }
+  .fi .a a { color: var(--pink); }
+
+  footer { text-align: center; padding: 32px; color: #aaa; font-size: .82rem; border-top: 1px solid var(--border); background: var(--bg2); }
+
+  @media(max-width:600px){
+    .problems-img{display:none;}
+    .guarantee{flex-direction:column;}
+    .countdown{gap:8px;}
+    .cdu{padding:12px 14px;min-width:58px;}
+    .cdu .num{font-size:1.6rem;}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>¿Y si <span>en 90 días pudieras convertirte en la versión de ti que siempre imaginaste…</span> pero nunca lograste sostener en el tiempo?</h1>
+  <p>Descubre cómo lograr un <span class="pink">glow up real</span> (físico + mental) con un sistema claro, simple y diseñado para que realmente lo mantengas en el tiempo.</p>
+  <p>Porque no necesitas más motivación… <strong>necesitas una guía que funcione incluso cuando no tienes ganas.</strong></p>
+  <img class="product" src="portada.png" alt="Guías Glow Up">
+  <img class="product" src="libro 2.png" alt="Guías Glow Up">
+  <br>
+  <a class="btn" href="https://pay.hotmart.com/Y105013545I?off=3w2vztwn&hotfeature=51">QUIERO MI GLOW UP EN 90 DÍAS</a>
+</section>
+
+<img class="divider" src="cambio.png" alt="">
+
+<!-- PROBLEMS -->
+<section class="problems">
+  <div class="problems-inner">
+    <div class="problems-text">
+      <p><strong>La mayoría falla en su GLOW UP por 3 razones:</strong></p>
+      <ol>
+        <li>Empiezan sin un plan claro</li>
+        <li>Dependen de la motivación (y no de una estructura)</li>
+        <li>No trabajan su mente, solo su apariencia</li>
+      </ol>
+      <br>
+      <p><strong>Y por eso siempre vuelven al mismo punto.</strong></p>
+    </div>
+    <div class="problems-img">
+      <img src="libroCompleto.png" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<div class="section-title"><h2>LO QUE ENCONTRARÁS DENTRO DE LA GUÍA:</h2></div>
+<div class="modules">
+  <div class="mc"><img src="despertar.jpg" alt=""><div><h3>Despertar y decisión</h3><p>Comienza con un llamado directo al cambio, donde te hace asumir responsabilidad total sobre tu vida y tu transformación.</p></div></div>
+  <div class="mc"><img src="habitos.jpg" alt=""><div><h3>Hábitos del 1%</h3><p>Desarrollo de disciplina, rutinas y hábitos que diferencian a las chicas que logran resultados reales de las que se quedan estancadas.</p></div></div>
+  <div class="mc"><img src="presencia.jpg" alt=""><div><h3>Pretty Privilege &amp; Presencia</h3><p>Aprendes cómo verte más atractiva desde la actitud, utilizar el lenguaje corporal a tu favor y elevar tus estándares para vivir como en un tablero de Pinterest.</p></div></div>
+  <div class="mc"><img src="cuidado.jpg" alt=""><div><h3>Cuidado físico (Glow Up real)</h3><p>Optimización facial estratégica: cómo la postura, el mewing y ciertos hábitos pueden hacer que tu rostro se vea más definido y atractivo con el tiempo.</p></div></div>
+  <div class="mc"><img src="distraccion.jpg" alt=""><div><h3>Eliminación de distracciones</h3><p>Te muestra cómo dejar atrás lo que te frena (redes sociales, fiestas, malos hábitos) y enfocarte en construir una vida de alto valor.</p></div></div>
+</div>
+
+<!-- BONUSES -->
+<section class="bonuses">
+  <img class="kit-img" src="plantillas.png" alt="Kit">
+  <h2>ADEMÁS ACCEDES AL KIT COMPLETO GLOW UP</h2>
+  <p class="sub">(4 BONOS DE REGALO)</p>
+  <p class="desc">No solo obtienes las guías. Obtienes herramientas diseñadas para que NO abandones a mitad del proceso:</p>
+  <div class="bonus-grid">
+    <div class="bc"><img src="plantilla2.png" alt="" style="max-width: 340px;"><div><h3>BONO 1 — Método secreto anti-procrastinación</h3><p>No es falta de disciplina. Es un patrón mental. <strong>Este método te enseña a identificar el momento exacto en el que empiezas a postergar…</strong> y a cortarlo en segundos.</p></div></div>
+    <div class="bc"><img src="plantilla3.png" alt="" style="max-width: 270px"><div><h3>BONO 2 — Test "qué te está frenando"</h3><p>No puedes cambiar lo que no entiendes. <strong>Este test revela qué está saboteando tu cambio:</strong> si es tu mentalidad, tus hábitos, tu entorno o tu forma de pensar.</p></div></div>
+    <div class="bc"><img src="plantilla4.png" alt="" style="max-width: 200px"><div><h3>BONO 3 — Qué hacer cuando quieres rendirte</h3><p><strong>Ese momento en el que quieres dejar todo…</strong> es donde se define quién cambia y quién sigue igual. Aquí tienes un protocolo claro para esos días.</p></div></div>
+    <div class="bc"><img src="plantilla5.png" alt="" style="max-width: 270px"><div><h3>BONO 4 — Checklist diario de 31 días</h3><p>La mayoría falla porque no mide su proceso. <strong>Este checklist convierte tu cambio en algo visible, tangible y medible.</strong> No se trata de hacerlo perfecto, se trata de no romper la cadena.</p></div></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing">
+  <p class="urgency">¡LOS CUPOS CON ESTE KIT SON LIMITADOS!</p>
+  <p class="old">ANTES $18 USD</p>
+  <p class="only">Solo por hoy</p>
+  <p class="price"><sup>$</sup>5,97</p>
+  <a class="btn" href="https://pay.hotmart.com/Y105013545I?off=3w2vztwn&hotfeature=51">ACCEDER AHORA</a>
+  <p class="note">Único pago · Acceso de por vida</p>
+
+  <p class="cd-label">Esta oferta se cierra en:</p>
+  <div class="countdown">
+    <div class="cdu"><span class="num" id="cdh">00</span><span class="lbl">Horas</span></div>
+    <div class="cdu"><span class="num" id="cdm">00</span><span class="lbl">Minutos</span></div>
+    <div class="cdu"><span class="num" id="cds">00</span><span class="lbl">Segundos</span></div>
+  </div>
+
+  <div class="guarantee">
+    <img src="7 dias.png" alt="Garantía">
+    <div>
+      <h3>Garantía incondicional de 7 días.</h3>
+      <p>Esta es nuestra propuesta: <strong>tienes 7 días para probar el contenido</strong> y, si aún así no te convence, simplemente envía una solicitud a mi equipo y te reembolsaremos el 100% del importe pagado.</p>
+    </div>
+  </div>
+  <br><br>
+  <a class="btn" href="https://pay.hotmart.com/Y105013545I?off=3w2vztwn&hotfeature=51">QUIERO MI GLOW UP</a>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <p class="faq-title">Preguntas Frecuentes</p>
+  <div class="fi"><div class="n">01.</div><div class="q">¿Recibiré algún producto en mi domicilio?</div><div class="a">No. Todo el contenido del proyecto es 100% online. En cuanto te registres, recibirás acceso al área de estudiantes a través de la dirección de correo electrónico que utilizaste para la compra.</div></div>
+  <div class="fi"><div class="n">02.</div><div class="q">¿Cómo me llega el libro?</div><div class="a">Inmediatamente haces el pago, te llega un correo con el archivo del libro adjunto</div></div>
+  <div class="fi"><div class="n">03.</div><div class="q">¿Cómo sé que no es una estafa?</div><div class="a">El pago es realizado de forma 100% segura por medio de Hotmart, la plataforma de venta de productos digitales más grande y segura del habla hispana. El pago se lo haces directamente a ellos.</div></div>
+</section>
+
+<footer>copyright © todos los derechos reservados.</footer>
+
+<script>
+  let t = 14*60+59;
+  function pad(n){return String(n).padStart(2,'0');}
+  function tick(){
+    document.getElementById('cdh').textContent=pad(Math.floor(t/3600));
+    document.getElementById('cdm').textContent=pad(Math.floor((t%3600)/60));
+    document.getElementById('cds').textContent=pad(t%60);
+    if(t>0)t--;
+  }
+  tick(); setInterval(tick,1000);
+</script>
+</body>
+</html>
